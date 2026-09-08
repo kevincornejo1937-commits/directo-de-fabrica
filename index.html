@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inicio | Directo de Fábrica</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">DF</div>
+
+            <div>
+                <strong>Directo</strong>
+                <span>de Fábrica</span>
+            </div>
+
+        </div>
+
+        <div class="menu-title">MENÚ PRINCIPAL</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="index.html" class="menu-item active">
+                <span class="menu-icon">⌂</span>
+                <span>Inicio</span>
+            </a>
+
+            <a href="dashboard.html" class="menu-item">
+                <span class="menu-icon">▦</span>
+                <span>Dashboard BI</span>
+            </a>
+
+            <a href="ventas.html" class="menu-item">
+                <span class="menu-icon">▤</span>
+                <span>Ventas</span>
+            </a>
+
+            <a href="inventario.html" class="menu-item">
+                <span class="menu-icon">▣</span>
+                <span>Inventario</span>
+            </a>
+
+            <a href="productos.html" class="menu-item">
+                <span class="menu-icon">□</span>
+                <span>Productos</span>
+            </a>
+
+            <a href="indicadores.html" class="menu-item">
+                <span class="menu-icon">◉</span>
+                <span>Indicadores</span>
+            </a>
+
+        </nav>
+
+        <div class="menu-title system-title">SISTEMA</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="configuracion.html" class="menu-item">
+                <span class="menu-icon">⚙</span>
+                <span>Configuración</span>
+            </a>
+
+            <button class="menu-item logout-button" onclick="cerrarSesion()">
+                <span class="menu-icon">↪</span>
+                <span>Cerrar sesión</span>
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- CONTENIDO -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div>
+                <span class="section-label">
+                    PLATAFORMA DE INTELIGENCIA DE NEGOCIOS
+                </span>
+
+                <h1>Panel principal</h1>
+            </div>
+
+            <div class="topbar-actions">
+
+                <button
+                    class="top-action theme-button"
+                    onclick="alternarTema()"
+                    title="Cambiar tema"
+                    aria-label="Cambiar tema"
+                >
+                    <span id="themeIcon">☀</span>
+                </button>
+
+                <button
+                    class="top-action notification-button"
+                    onclick="mostrarNotificaciones()"
+                    title="Notificaciones"
+                    aria-label="Notificaciones"
+                >
+                    🔔
+                    <span class="notification-badge" id="notificationBadge">
+                        2
+                    </span>
+                </button>
+
+                <div class="topbar-divider"></div>
+
+                <div class="user-profile">
+
+                    <div class="user-avatar">
+                        AD
+                    </div>
+
+                    <div class="user-data">
+                        <strong>Administrador</strong>
+                        <span>Directo de Fábrica</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENIDO -->
+        <section class="page-content">
+
+            <div class="welcome-banner">
+
+                <div>
+                    <span class="section-label light">
+                        BIENVENIDO
+                    </span>
+
+                    <h2>Gestión inteligente para Directo de Fábrica</h2>
+
+                    <p>
+                        Consulta y analiza la información de ventas,
+                        inventario y productos desde una sola plataforma.
+                    </p>
+                </div>
+
+                <div class="banner-symbol">
+                    DF
+                </div>
+
+            </div>
+
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">
+                        RESUMEN GENERAL
+                    </span>
+
+                    <h2>Indicadores principales</h2>
+                </div>
+
+                <span class="update-text">
+                    Información disponible
+                </span>
+
+            </div>
+
+
+            <div class="kpi-grid">
+
+                <div class="kpi-card">
+                    <div class="kpi-icon green">💰</div>
+
+                    <div>
+                        <span>Total de ventas</span>
+                        <strong id="inicioVentas">$2.155,00</strong>
+                        <small>Información disponible</small>
+                    </div>
+                </div>
+
+
+                <div class="kpi-card">
+                    <div class="kpi-icon blue">🧾</div>
+
+                    <div>
+                        <span>Número de ventas</span>
+                        <strong id="inicioNumVentas">6</strong>
+                        <small>Registros procesados</small>
+                    </div>
+                </div>
+
+
+                <div class="kpi-card">
+                    <div class="kpi-icon purple">📦</div>
+
+                    <div>
+                        <span>Productos vendidos</span>
+                        <strong id="inicioProductosVendidos">71</strong>
+                        <small>Unidades registradas</small>
+                    </div>
+                </div>
+
+
+                <div class="kpi-card">
+                    <div class="kpi-icon orange">📊</div>
+
+                    <div>
+                        <span>Stock actual</span>
+                        <strong id="inicioStock">204</strong>
+                        <small>Unidades disponibles</small>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="two-column-grid">
+
+                <div class="content-card">
+
+                    <div class="card-header">
+                        <div>
+                            <span class="section-label">
+                                ACCESO RÁPIDO
+                            </span>
+
+                            <h2>Módulos de la plataforma</h2>
+                        </div>
+                    </div>
+
+
+                    <div class="module-grid">
+
+                        <a href="dashboard.html" class="module-card">
+                            <div class="module-icon">▦</div>
+
+                            <div>
+                                <strong>Dashboard BI</strong>
+                                <span>Vista general</span>
+                            </div>
+                        </a>
+
+
+                        <a href="ventas.html" class="module-card">
+                            <div class="module-icon">▤</div>
+
+                            <div>
+                                <strong>Ventas</strong>
+                                <span>Consultar ventas</span>
+                            </div>
+                        </a>
+
+
+                        <a href="inventario.html" class="module-card">
+                            <div class="module-icon">▣</div>
+
+                            <div>
+                                <strong>Inventario</strong>
+                                <span>Consultar stock</span>
+                            </div>
+                        </a>
+
+
+                        <a href="productos.html" class="module-card">
+                            <div class="module-icon">□</div>
+
+                            <div>
+                                <strong>Productos</strong>
+                                <span>Consultar productos</span>
+                            </div>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="section-label">
+                                SISTEMA
+                            </span>
+
+                            <h2>Estado de la plataforma</h2>
+                        </div>
+
+                    </div>
+
+
+                    <div class="status-list">
+
+                        <div class="status-item">
+                            <div class="status-icon">✓</div>
+
+                            <div>
+                                <strong>Modelo de datos</strong>
+                                <span>Ventas e inventario</span>
+                            </div>
+
+                            <em>Activo</em>
+                        </div>
+
+
+                        <div class="status-item">
+                            <div class="status-icon">✓</div>
+
+                            <div>
+                                <strong>Indicadores BI</strong>
+                                <span>KPI disponibles</span>
+                            </div>
+
+                            <em>Activo</em>
+                        </div>
+
+
+                        <div class="status-item">
+                            <div class="status-icon">✓</div>
+
+                            <div>
+                                <strong>Acceso</strong>
+                                <span>Administrador</span>
+                            </div>
+
+                            <em>Autorizado</em>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<div id="notificationPanel" class="notification-panel">
+
+    <div class="notification-header">
+        <strong>Notificaciones</strong>
+
+        <button onclick="cerrarNotificaciones()">×</button>
+    </div>
+
+    <div class="notification-item">
+        <span>📊</span>
+
+        <div>
+            <strong>Indicadores disponibles</strong>
+            <p>Los indicadores están listos para consulta.</p>
+        </div>
+    </div>
+
+    <div class="notification-item">
+        <span>📦</span>
+
+        <div>
+            <strong>Inventario actualizado</strong>
+            <p>Puede consultar la información del inventario.</p>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/datos.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

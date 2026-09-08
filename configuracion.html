@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Configuración | Directo de Fábrica</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">DF</div>
+
+            <div>
+                <strong>Directo</strong>
+                <span>de Fábrica</span>
+            </div>
+
+        </div>
+
+        <div class="menu-title">MENÚ PRINCIPAL</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="index.html" class="menu-item">
+                <span class="menu-icon">⌂</span>
+                Inicio
+            </a>
+
+            <a href="dashboard.html" class="menu-item">
+                <span class="menu-icon">▦</span>
+                Dashboard BI
+            </a>
+
+            <a href="ventas.html" class="menu-item">
+                <span class="menu-icon">▤</span>
+                Ventas
+            </a>
+
+            <a href="inventario.html" class="menu-item">
+                <span class="menu-icon">▣</span>
+                Inventario
+            </a>
+
+            <a href="productos.html" class="menu-item">
+                <span class="menu-icon">□</span>
+                Productos
+            </a>
+
+            <a href="indicadores.html" class="menu-item">
+                <span class="menu-icon">◉</span>
+                Indicadores
+            </a>
+
+        </nav>
+
+        <div class="menu-title system-title">SISTEMA</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="configuracion.html" class="menu-item active">
+                <span class="menu-icon">⚙</span>
+                Configuración
+            </a>
+
+            <button class="menu-item logout-button" onclick="cerrarSesion()">
+                <span class="menu-icon">↪</span>
+                Cerrar sesión
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+
+                <span class="section-label">
+                    SISTEMA
+                </span>
+
+                <h1>Configuración</h1>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <button
+                    class="top-action theme-button"
+                    onclick="alternarTema()"
+                >
+                    <span id="themeIcon">☀</span>
+                </button>
+
+
+                <button
+                    class="top-action notification-button"
+                    onclick="mostrarNotificaciones()"
+                >
+                    🔔
+
+                    <span class="notification-badge">
+                        2
+                    </span>
+                </button>
+
+
+                <div class="topbar-divider"></div>
+
+
+                <div class="user-profile">
+
+                    <div class="user-avatar">
+                        AD
+                    </div>
+
+                    <div class="user-data">
+                        <strong>Administrador</strong>
+                        <span>Directo de Fábrica</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+            <div class="page-intro">
+
+                <span class="section-label">
+                    CONFIGURACIÓN
+                </span>
+
+                <h2>Preferencias de la plataforma</h2>
+
+                <p>
+                    Administra las preferencias visuales y opciones
+                    generales de la plataforma.
+                </p>
+
+            </div>
+
+
+            <div class="settings-grid">
+
+
+                <!-- APARIENCIA -->
+
+                <div class="settings-card">
+
+                    <div class="settings-card-header">
+
+                        <div class="settings-main-icon">
+                            🎨
+                        </div>
+
+                        <div>
+
+                            <span class="section-label">
+                                APARIENCIA
+                            </span>
+
+                            <h2>Visualización</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="setting-row">
+
+                        <div>
+
+                            <strong>Modo oscuro</strong>
+
+                            <p>
+                                Cambia entre el modo claro y oscuro.
+                            </p>
+
+                        </div>
+
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="darkModeSwitch"
+                                onchange="cambiarTemaDesdeConfiguracion()"
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="setting-row">
+
+                        <div>
+
+                            <strong>Animaciones</strong>
+
+                            <p>
+                                Mantiene las transiciones visuales
+                                de la plataforma.
+                            </p>
+
+                        </div>
+
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="animationsSwitch"
+                                checked
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NOTIFICACIONES -->
+
+                <div class="settings-card">
+
+                    <div class="settings-card-header">
+
+                        <div class="settings-main-icon">
+                            🔔
+                        </div>
+
+                        <div>
+
+                            <span class="section-label">
+                                AVISOS
+                            </span>
+
+                            <h2>Notificaciones</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="setting-row">
+
+                        <div>
+
+                            <strong>Notificaciones</strong>
+
+                            <p>
+                                Permite visualizar avisos del sistema.
+                            </p>
+
+                        </div>
+
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="notificationsSwitch"
+                                checked
+                                onchange="guardarPreferencias()"
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="setting-row">
+
+                        <div>
+
+                            <strong>Indicadores</strong>
+
+                            <p>
+                                Mostrar avisos relacionados con BI.
+                            </p>
+
+                        </div>
+
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="indicatorNotifications"
+                                checked
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CUENTA -->
+
+                <div class="settings-card">
+
+                    <div class="settings-card-header">
+
+                        <div class="settings-main-icon">
+                            👤
+                        </div>
+
+                        <div>
+
+                            <span class="section-label">
+                                CUENTA
+                            </span>
+
+                            <h2>Usuario actual</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="account-box">
+
+                        <div class="user-avatar large-avatar">
+                            AD
+                        </div>
+
+                        <div>
+
+                            <strong>Administrador</strong>
+
+                            <span>
+                                Usuario autorizado
+                            </span>
+
+                            <small>
+                                Directo de Fábrica
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SISTEMA -->
+
+                <div class="settings-card">
+
+                    <div class="settings-card-header">
+
+                        <div class="settings-main-icon">
+                            ⚙
+                        </div>
+
+                        <div>
+
+                            <span class="section-label">
+                                INFORMACIÓN
+                            </span>
+
+                            <h2>Estado del sistema</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="system-information">
+
+                        <div>
+                            <span>Plataforma</span>
+                            <strong>Directo de Fábrica BI</strong>
+                        </div>
+
+                        <div>
+                            <span>Estado</span>
+                            <strong class="status-online">
+                                ● Activo
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Dashboard</span>
+                            <strong>
+                                Preparado para Power BI
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Versión</span>
+                            <strong>
+                                1.0
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<div id="notificationPanel" class="notification-panel">
+
+    <div class="notification-header">
+
+        <strong>Notificaciones</strong>
+
+        <button onclick="cerrarNotificaciones()">
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="notification-item">
+
+        <span>⚙</span>
+
+        <div>
+
+            <strong>Configuración</strong>
+
+            <p>
+                Las preferencias de la plataforma están disponibles.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="js/datos.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

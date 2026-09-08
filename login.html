@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Iniciar sesión | Directo de Fábrica</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body.login-page {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f1f6f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 980px;
+            min-height: 600px;
+            background: #ffffff;
+            border-radius: 25px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 46% 54%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.10);
+        }
+
+        /* PANEL IZQUIERDO */
+
+        .login-brand {
+            background: linear-gradient(145deg, #07845f, #056b4e);
+            color: white;
+            padding: 55px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand-logo {
+            width: 76px;
+            height: 76px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 28px;
+        }
+
+        .login-brand h1 {
+            font-size: 42px;
+            line-height: 0.98;
+            margin: 0 0 8px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+        }
+
+        .brand-subtitle {
+            font-size: 18px;
+            margin: 0;
+            color: rgba(255,255,255,0.95);
+        }
+
+        .brand-description {
+            margin-top: 35px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.88);
+        }
+
+        /* PANEL DERECHO */
+
+        .login-content {
+            padding: 55px 55px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-label {
+            color: #07845f;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .login-content h2 {
+            margin: 0;
+            font-size: 31px;
+            color: #111827;
+        }
+
+        .login-description {
+            color: #6b7280;
+            margin: 14px 0 32px;
+            font-size: 14px;
+        }
+
+        .login-form {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 21px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #111827;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            z-index: 2;
+        }
+
+        .form-group input {
+            width: 100%;
+            height: 50px;
+            border: 1px solid #d8e1dd;
+            border-radius: 11px;
+            padding: 0 15px 0 43px;
+            outline: none;
+            font-size: 14px;
+            color: #111827;
+            background: #ffffff;
+            transition: 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: #07845f;
+            box-shadow: 0 0 0 3px rgba(7,132,95,0.10);
+        }
+
+        .login-message {
+            display: none;
+            margin-top: -5px;
+            margin-bottom: 17px;
+            color: #dc2626;
+            font-size: 13px;
+        }
+
+        .login-button {
+            width: 100%;
+            height: 51px;
+            border: none;
+            border-radius: 11px;
+            background: #07845f;
+            color: white;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .login-button:hover {
+            background: #056b4e;
+            transform: translateY(-1px);
+        }
+
+        .login-button:active {
+            transform: translateY(0);
+        }
+
+        .login-info {
+            margin-top: 25px;
+            padding: 17px;
+            border-radius: 11px;
+            background: #eaf5f1;
+            color: #356056;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .login-info strong {
+            display: block;
+            color: #075c45;
+            margin-bottom: 3px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 760px) {
+            body.login-page {
+                padding: 10px;
+            }
+
+            .login-container {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .login-brand {
+                padding: 35px 30px;
+            }
+
+            .login-brand h1 {
+                font-size: 34px;
+            }
+
+            .brand-description {
+                margin-top: 20px;
+            }
+
+            .login-content {
+                padding: 35px 30px;
+            }
+        }
+    </style>
+</head>
+
+<body class="login-page">
+
+    <div class="login-container">
+
+        <!-- PANEL DE MARCA -->
+        <section class="login-brand">
+
+            <div class="brand-logo">
+                DF
+            </div>
+
+            <h1>
+                Directo<br>
+                de Fábrica
+            </h1>
+
+            <p class="brand-subtitle">
+                Plataforma de Inteligencia de Negocios
+            </p>
+
+            <p class="brand-description">
+                Gestión y análisis de ventas e inventario
+            </p>
+
+        </section>
+
+
+        <!-- PANEL DE LOGIN -->
+        <section class="login-content">
+
+            <div class="login-label">
+                ACCESO AL SISTEMA
+            </div>
+
+            <h2>
+                Iniciar sesión
+            </h2>
+
+            <p class="login-description">
+                Ingrese sus datos para acceder a la plataforma.
+            </p>
+
+
+            <form id="loginForm" class="login-form">
+
+                <!-- USUARIO -->
+                <div class="form-group">
+
+                    <label for="usuario">
+                        Usuario
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            👤
+                        </span>
+
+                        <input
+                            type="text"
+                            id="usuario"
+                            name="usuario"
+                            placeholder="Ingrese su usuario"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTRASEÑA -->
+                <div class="form-group">
+
+                    <label for="password">
+                        Contraseña
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Ingrese su contraseña"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- MENSAJE -->
+                <div
+                    id="loginMessage"
+                    class="login-message"
+                    role="alert">
+                </div>
+
+
+                <!-- BOTÓN -->
+                <button
+                    type="submit"
+                    class="login-button">
+
+                    INGRESAR A LA PLATAFORMA
+
+                </button>
+
+            </form>
+
+
+            <!-- INFORMACIÓN -->
+            <div class="login-info">
+
+                <strong>
+                    Acceso al sistema
+                </strong>
+
+                Puede ingresar con cualquier usuario y contraseña.
+                No se requiere una cuenta previamente registrada.
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         LOGIN
+         NO CARGAR app.js AQUÍ
+         ===================================================== -->
+
+    <script>
+
+        const formulario = document.getElementById("loginForm");
+        const usuarioInput = document.getElementById("usuario");
+        const passwordInput = document.getElementById("password");
+        const mensaje = document.getElementById("loginMessage");
+
+
+        formulario.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            const usuario = usuarioInput.value.trim();
+            const password = passwordInput.value.trim();
+
+
+            /*
+             * =================================================
+             * VALIDACIÓN
+             * =================================================
+             *
+             * NO EXISTE:
+             *
+             * administrador
+             * 12345
+             *
+             * Se acepta CUALQUIER usuario
+             * y CUALQUIER contraseña.
+             *
+             * Solo deben estar llenos los dos campos.
+             */
+
+            if (usuario === "" || password === "") {
+
+                mensaje.style.display = "block";
+
+                mensaje.textContent =
+                    "Ingrese un usuario y una contraseña.";
+
+                return;
+            }
+
+
+            /*
+             * =================================================
+             * CREAR SESIÓN
+             * =================================================
+             */
+
+            localStorage.setItem(
+                "sesionDirectoFabrica",
+                "activa"
+            );
+
+            localStorage.setItem(
+                "usuarioDirectoFabrica",
+                usuario
+            );
+
+            localStorage.setItem(
+                "usuario",
+                usuario
+            );
+
+
+            /*
+             * Ocultar mensaje
+             */
+
+            mensaje.style.display = "none";
+
+
+            /*
+             * =================================================
+             * ENTRAR A LA PLATAFORMA
+             * =================================================
+             */
+
+            window.location.href = "index.html";
+
+        });
+
+    </script>
+
+</body>
+</html>

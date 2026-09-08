@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard BI | Directo de Fábrica</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           CONTENIDO DEL DASHBOARD
+           ===================================================== */
+
+        .dashboard-page {
+            width: 100%;
+        }
+
+
+        /* =====================================================
+           BOTONES SUPERIORES
+           ===================================================== */
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+
+        .header-button {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+
+            border: 1px solid #dfe5e1;
+
+            background: #ffffff;
+
+            cursor: pointer;
+
+            font-size: 18px;
+
+            transition: 0.2s ease;
+        }
+
+
+        .header-button:hover {
+            transform: translateY(-1px);
+            background: #f2f7f4;
+        }
+
+
+        /* =====================================================
+           POWER BI
+           ===================================================== */
+
+        .powerbi-card {
+
+            margin-top: 25px;
+
+            background: #ffffff;
+
+            border: 1px solid #e1e7e3;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 4px 18px rgba(0, 0, 0, 0.06);
+
+        }
+
+
+        .powerbi-card-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 20px 24px;
+
+            border-bottom:
+                1px solid #e5e7eb;
+
+        }
+
+
+        .powerbi-card-header h2 {
+
+            margin: 0;
+
+            font-size: 20px;
+
+        }
+
+
+        .powerbi-card-header p {
+
+            margin: 6px 0 0;
+
+            color: #6b7280;
+
+            font-size: 14px;
+
+        }
+
+
+        .powerbi-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 11px 16px;
+
+            border-radius: 9px;
+
+            background: #16864a;
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+
+        }
+
+
+        .powerbi-button:hover {
+
+            opacity: 0.9;
+
+        }
+
+
+        .powerbi-container {
+
+            width: 100%;
+
+            height: 720px;
+
+            background: #f4f6f5;
+
+        }
+
+
+        .powerbi-container iframe {
+
+            width: 100%;
+
+            height: 100%;
+
+            border: none;
+
+            display: block;
+
+        }
+
+
+        /* =====================================================
+           NOTIFICACIONES
+           ===================================================== */
+
+        .notification-wrapper {
+
+            position: relative;
+
+        }
+
+
+        .notification-panel {
+
+            position: absolute;
+
+            top: 52px;
+
+            right: 0;
+
+            width: 340px;
+
+            max-width: calc(100vw - 30px);
+
+            background: #ffffff;
+
+            border: 1px solid #e1e7e3;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.16);
+
+            z-index: 9999;
+
+            overflow: hidden;
+
+
+            /* OCULTO POR DEFECTO */
+
+            display: none;
+
+        }
+
+
+        .notification-panel.show {
+
+            display: block;
+
+        }
+
+
+        .notification-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 16px 18px;
+
+            border-bottom:
+                1px solid #e5e7eb;
+
+        }
+
+
+        .notification-header strong {
+
+            font-size: 16px;
+
+        }
+
+
+        .notification-close {
+
+            width: 32px;
+
+            height: 32px;
+
+            border: none;
+
+            background: transparent;
+
+            cursor: pointer;
+
+            font-size: 19px;
+
+            border-radius: 7px;
+
+        }
+
+
+        .notification-close:hover {
+
+            background: #f3f4f6;
+
+        }
+
+
+        .notification-item {
+
+            display: flex;
+
+            gap: 12px;
+
+            padding: 16px 18px;
+
+            border-bottom:
+                1px solid #edf0ee;
+
+        }
+
+
+        .notification-item:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .notification-icon {
+
+            font-size: 20px;
+
+        }
+
+
+        .notification-item strong {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .notification-item p {
+
+            margin: 0;
+
+            color: #6b7280;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =====================================================
+           MODO OSCURO
+           ===================================================== */
+
+        body.dark-mode {
+
+            background: #111827;
+
+            color: #f9fafb;
+
+        }
+
+
+        body.dark-mode .main-content {
+
+            background: #111827;
+
+        }
+
+
+        body.dark-mode .topbar {
+
+            background: #1f2937;
+
+            border-color: #374151;
+
+        }
+
+
+        body.dark-mode .header-button {
+
+            background: #263241;
+
+            color: #ffffff;
+
+            border-color: #45515f;
+
+        }
+
+
+        body.dark-mode .header-button:hover {
+
+            background: #344152;
+
+        }
+
+
+        body.dark-mode .powerbi-card {
+
+            background: #1f2937;
+
+            border-color: #374151;
+
+        }
+
+
+        body.dark-mode .powerbi-card-header {
+
+            border-color: #374151;
+
+        }
+
+
+        body.dark-mode .powerbi-card-header h2 {
+
+            color: #ffffff;
+
+        }
+
+
+        body.dark-mode .powerbi-card-header p {
+
+            color: #c1c7d0;
+
+        }
+
+
+        body.dark-mode .notification-panel {
+
+            background: #1f2937;
+
+            border-color: #374151;
+
+            color: #ffffff;
+
+        }
+
+
+        body.dark-mode .notification-header {
+
+            border-color: #374151;
+
+        }
+
+
+        body.dark-mode .notification-close {
+
+            color: #ffffff;
+
+        }
+
+
+        body.dark-mode .notification-close:hover {
+
+            background: #374151;
+
+        }
+
+
+        body.dark-mode .notification-item {
+
+            border-color: #374151;
+
+        }
+
+
+        body.dark-mode .notification-item p {
+
+            color: #c1c7d0;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .powerbi-card-header {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .powerbi-container {
+
+                height: 550px;
+
+            }
+
+
+            .notification-panel {
+
+                right: -60px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MENÚ LATERAL
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="sidebar-logo">
+
+            <div class="logo-df">
+                DF
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Directo de Fábrica
+                </strong>
+
+                <small>
+                    Business Intelligence
+                </small>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MENÚ -->
+
+        <nav class="sidebar-menu">
+
+
+            <a href="index.html">
+
+                🏠
+
+                <span>
+                    Inicio
+                </span>
+
+            </a>
+
+
+            <a
+                href="dashboard.html"
+                class="active"
+            >
+
+                📊
+
+                <span>
+                    Dashboard BI
+                </span>
+
+            </a>
+
+
+            <a href="ventas.html">
+
+                💰
+
+                <span>
+                    Ventas
+                </span>
+
+            </a>
+
+
+            <a href="inventario.html">
+
+                📦
+
+                <span>
+                    Inventario
+                </span>
+
+            </a>
+
+
+            <a href="productos.html">
+
+                🛒
+
+                <span>
+                    Productos
+                </span>
+
+            </a>
+
+
+            <a href="indicadores.html">
+
+                📈
+
+                <span>
+                    Indicadores
+                </span>
+
+            </a>
+
+
+            <a href="configuracion.html">
+
+                ⚙️
+
+                <span>
+                    Configuración
+                </span>
+
+            </a>
+
+        </nav>
+
+
+
+        <!-- BOTONES INFERIORES -->
+
+        <div class="sidebar-bottom">
+
+
+            <!-- NO TIENE ONCLICK -->
+
+            <button
+                id="sidebarThemeButton"
+                class="theme-toggle"
+                type="button"
+            >
+
+                🌙
+                <span>
+                    Modo oscuro
+                </span>
+
+            </button>
+
+
+
+            <button
+                type="button"
+                class="logout-button"
+                onclick="cerrarSesion()"
+            >
+
+                🚪
+
+                <span>
+                    Cerrar sesión
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             BARRA SUPERIOR
+             ================================================= -->
+
+        <header class="topbar">
+
+
+            <div class="topbar-left">
+
+                <div>
+
+                    <span
+                        class="section-label"
+                    >
+                        INTELIGENCIA DE NEGOCIOS
+                    </span>
+
+
+                    <h1>
+                        Dashboard BI
+                    </h1>
+
+
+                    <p id="fechaActual">
+                        Cargando fecha...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="header-actions">
+
+
+                <!-- BOTÓN TEMA -->
+                <!-- NO TIENE ONCLICK -->
+
+                <button
+                    id="btnTema"
+                    type="button"
+                    class="header-button"
+                    title="Cambiar a modo oscuro"
+                >
+
+                    🌙
+
+                </button>
+
+
+
+                <!-- NOTIFICACIONES -->
+
+                <div
+                    class="notification-wrapper"
+                >
+
+
+                    <!-- NO TIENE ONCLICK -->
+
+                    <button
+                        id="btnNotificaciones"
+                        type="button"
+                        class="header-button"
+                        title="Notificaciones"
+                    >
+
+                        🔔
+
+                    </button>
+
+
+
+                    <!-- PANEL -->
+
+                    <div
+                        id="notificationPanel"
+                        class="notification-panel"
+                    >
+
+
+                        <div
+                            class="notification-header"
+                        >
+
+                            <strong>
+                                Notificaciones
+                            </strong>
+
+
+                            <button
+                                type="button"
+                                class="notification-close"
+                                onclick="cerrarNotificaciones()"
+                            >
+                                ✕
+                            </button>
+
+                        </div>
+
+
+
+                        <div
+                            class="notification-item"
+                        >
+
+                            <div
+                                class="notification-icon"
+                            >
+                                📊
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    Dashboard disponible
+                                </strong>
+
+
+                                <p>
+                                    El dashboard de ventas e inventario está disponible para su consulta.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div
+                            class="notification-item"
+                        >
+
+                            <div
+                                class="notification-icon"
+                            >
+                                📦
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    Inventario actualizado
+                                </strong>
+
+
+                                <p>
+                                    Consulte los indicadores para analizar el stock y movimiento de productos.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div
+                            class="notification-item"
+                        >
+
+                            <div
+                                class="notification-icon"
+                            >
+                                💰
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    Análisis de ventas
+                                </strong>
+
+
+                                <p>
+                                    Revise el comportamiento de las ventas mediante el dashboard de Power BI.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- USUARIO -->
+
+                <div class="user-info">
+
+                    <div
+                        class="user-avatar"
+                    >
+                        👤
+                    </div>
+
+
+                    <div>
+
+                        <strong
+                            id="nombreUsuario"
+                        >
+                            Administrador
+                        </strong>
+
+
+                        <small>
+                            Usuario
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             CONTENIDO
+             ================================================= -->
+
+        <section class="content">
+
+
+            <div
+                class="dashboard-page"
+            >
+
+
+                <!-- TÍTULO -->
+
+                <div
+                    class="page-header"
+                >
+
+                    <div>
+
+                        <h2>
+                            Dashboard de Ventas e Inventario
+                        </h2>
+
+
+                        <p>
+                            Análisis de la información empresarial de Directo de Fábrica.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     POWER BI
+                     ================================================= -->
+
+                <section
+                    class="powerbi-card"
+                >
+
+
+                    <div
+                        class="powerbi-card-header"
+                    >
+
+
+                        <div>
+
+                            <h2>
+                                Dashboard Power BI
+                            </h2>
+
+
+                            <p>
+                                Visualización de indicadores y análisis de ventas e inventario.
+                            </p>
+
+                        </div>
+
+
+
+                        <a
+                            href="https://app.powerbi.com/reportEmbed?reportId=f3461fc9-50bc-4c5e-b266-8bf9b36c7f9e&autoAuth=true&ctid=88aa244e-18f9-40a7-ba6f-28981fd7e1e9&actionBarEnabled=true"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="powerbi-button"
+                        >
+
+                            ↗ Abrir en Power BI
+
+                        </a>
+
+
+                    </div>
+
+
+
+                    <!-- POWER BI -->
+
+                    <div
+                        class="powerbi-container"
+                    >
+
+                        <iframe
+                            title="Directo de Fábrica - Dashboard Power BI"
+                            src="https://app.powerbi.com/reportEmbed?reportId=f3461fc9-50bc-4c5e-b266-8bf9b36c7f9e&autoAuth=true&ctid=88aa244e-18f9-40a7-ba6f-28981fd7e1e9&actionBarEnabled=true"
+                            allowfullscreen="true"
+                        >
+                        </iframe>
+
+                    </div>
+
+
+                </section>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         SOLO UN ARCHIVO
+         ===================================================== -->
+
+    <script src="js/app.js"></script>
+
+
+</body>
+</html>

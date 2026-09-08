@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inventario | Directo de Fábrica</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logo">DF</div>
+
+            <div>
+                <strong>Directo</strong>
+                <span>de Fábrica</span>
+            </div>
+        </div>
+
+        <div class="menu-title">MENÚ PRINCIPAL</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="index.html" class="menu-item">
+                <span class="menu-icon">⌂</span>
+                Inicio
+            </a>
+
+            <a href="dashboard.html" class="menu-item">
+                <span class="menu-icon">▦</span>
+                Dashboard BI
+            </a>
+
+            <a href="ventas.html" class="menu-item">
+                <span class="menu-icon">▤</span>
+                Ventas
+            </a>
+
+            <a href="inventario.html" class="menu-item active">
+                <span class="menu-icon">▣</span>
+                Inventario
+            </a>
+
+            <a href="productos.html" class="menu-item">
+                <span class="menu-icon">□</span>
+                Productos
+            </a>
+
+            <a href="indicadores.html" class="menu-item">
+                <span class="menu-icon">◉</span>
+                Indicadores
+            </a>
+
+        </nav>
+
+        <div class="menu-title system-title">SISTEMA</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="configuracion.html" class="menu-item">
+                <span class="menu-icon">⚙</span>
+                Configuración
+            </a>
+
+            <button class="menu-item logout-button" onclick="cerrarSesion()">
+                <span class="menu-icon">↪</span>
+                Cerrar sesión
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <span class="section-label">CONTROL DE INVENTARIO</span>
+                <h1>Inventario</h1>
+            </div>
+
+            <div class="topbar-actions">
+
+                <button class="top-action theme-button" onclick="alternarTema()">
+                    <span id="themeIcon">☀</span>
+                </button>
+
+                <button class="top-action notification-button" onclick="mostrarNotificaciones()">
+                    🔔
+                    <span class="notification-badge">2</span>
+                </button>
+
+                <div class="topbar-divider"></div>
+
+                <div class="user-profile">
+
+                    <div class="user-avatar">AD</div>
+
+                    <div class="user-data">
+                        <strong>Administrador</strong>
+                        <span>Directo de Fábrica</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+            <div class="page-intro">
+
+                <span class="section-label">INVENTARIO</span>
+
+                <h2>Control de existencias</h2>
+
+                <p>
+                    Consulta el estado actual de los productos disponibles.
+                </p>
+
+            </div>
+
+
+            <div class="kpi-grid">
+
+                <div class="kpi-card">
+
+                    <div class="kpi-icon orange">📦</div>
+
+                    <div>
+                        <span>Stock actual</span>
+                        <strong>204</strong>
+                        <small>Unidades disponibles</small>
+                    </div>
+
+                </div>
+
+
+                <div class="kpi-card">
+
+                    <div class="kpi-icon purple">🗃</div>
+
+                    <div>
+                        <span>Total de productos</span>
+                        <strong>50</strong>
+                        <small>Productos registrados</small>
+                    </div>
+
+                </div>
+
+
+                <div class="kpi-card">
+
+                    <div class="kpi-icon blue">↕</div>
+
+                    <div>
+                        <span>Movimiento</span>
+                        <strong>71</strong>
+                        <small>Unidades vendidas</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <span class="section-label">CONTROL</span>
+                        <h2>Estado del inventario</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="inventory-status-grid">
+
+                    <div class="inventory-box good">
+                        <span class="inventory-box-icon">✓</span>
+
+                        <strong>Disponibilidad</strong>
+
+                        <p>
+                            Existen productos disponibles para consulta.
+                        </p>
+                    </div>
+
+
+                    <div class="inventory-box warning">
+                        <span class="inventory-box-icon">!</span>
+
+                        <strong>Seguimiento</strong>
+
+                        <p>
+                            El movimiento de productos puede ser analizado
+                            mediante los indicadores BI.
+                        </p>
+                    </div>
+
+
+                    <div class="inventory-box info">
+                        <span class="inventory-box-icon">i</span>
+
+                        <strong>Modelo BI</strong>
+
+                        <p>
+                            La información se encuentra preparada para
+                            integrarse con Power BI.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<div id="notificationPanel" class="notification-panel">
+
+    <div class="notification-header">
+        <strong>Notificaciones</strong>
+        <button onclick="cerrarNotificaciones()">×</button>
+    </div>
+
+    <div class="notification-item">
+        <span>📦</span>
+
+        <div>
+            <strong>Inventario disponible</strong>
+            <p>Puede consultar el estado de las existencias.</p>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/datos.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

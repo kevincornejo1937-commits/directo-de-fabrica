@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Indicadores | Directo de Fábrica</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">DF</div>
+
+            <div>
+                <strong>Directo</strong>
+                <span>de Fábrica</span>
+            </div>
+
+        </div>
+
+        <div class="menu-title">MENÚ PRINCIPAL</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="index.html" class="menu-item">
+                <span class="menu-icon">⌂</span>
+                Inicio
+            </a>
+
+            <a href="dashboard.html" class="menu-item">
+                <span class="menu-icon">▦</span>
+                Dashboard BI
+            </a>
+
+            <a href="ventas.html" class="menu-item">
+                <span class="menu-icon">▤</span>
+                Ventas
+            </a>
+
+            <a href="inventario.html" class="menu-item">
+                <span class="menu-icon">▣</span>
+                Inventario
+            </a>
+
+            <a href="productos.html" class="menu-item">
+                <span class="menu-icon">□</span>
+                Productos
+            </a>
+
+            <a href="indicadores.html" class="menu-item active">
+                <span class="menu-icon">◉</span>
+                Indicadores
+            </a>
+
+        </nav>
+
+        <div class="menu-title system-title">SISTEMA</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="configuracion.html" class="menu-item">
+                <span class="menu-icon">⚙</span>
+                Configuración
+            </a>
+
+            <button class="menu-item logout-button" onclick="cerrarSesion()">
+                <span class="menu-icon">↪</span>
+                Cerrar sesión
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+
+                <span class="section-label">
+                    INTELIGENCIA DE NEGOCIOS
+                </span>
+
+                <h1>Indicadores BI</h1>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <button
+                    class="top-action theme-button"
+                    onclick="alternarTema()"
+                    title="Cambiar tema"
+                >
+                    <span id="themeIcon">☀</span>
+                </button>
+
+
+                <button
+                    class="top-action notification-button"
+                    onclick="mostrarNotificaciones()"
+                    title="Notificaciones"
+                >
+                    🔔
+
+                    <span class="notification-badge">
+                        2
+                    </span>
+
+                </button>
+
+
+                <div class="topbar-divider"></div>
+
+
+                <div class="user-profile">
+
+                    <div class="user-avatar">
+                        AD
+                    </div>
+
+                    <div class="user-data">
+                        <strong>Administrador</strong>
+                        <span>Directo de Fábrica</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+            <div class="page-intro">
+
+                <span class="section-label">
+                    RESUMEN DE INFORMACIÓN
+                </span>
+
+                <h2>Indicadores principales</h2>
+
+                <p>
+                    Indicadores utilizados para facilitar el análisis
+                    de las ventas, compras e inventario de Directo de Fábrica.
+                </p>
+
+            </div>
+
+
+            <!-- INDICADORES -->
+
+            <div class="indicator-grid">
+
+
+                <!-- 1 -->
+
+                <article class="indicator-card">
+
+                    <div class="indicator-image sales-image">
+                        <div class="indicator-illustration">
+                            💰
+                        </div>
+                    </div>
+
+                    <div class="indicator-content">
+
+                        <span class="indicator-category">
+                            VENTAS
+                        </span>
+
+                        <h3>Total de ventas</h3>
+
+                        <strong class="indicator-value">
+                            $2.155,00
+                        </strong>
+
+                        <p>
+                            Representa el valor acumulado de las operaciones
+                            de venta registradas durante el periodo analizado.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 2 -->
+
+                <article class="indicator-card">
+
+                    <div class="indicator-image operations-image">
+                        <div class="indicator-illustration">
+                            🧾
+                        </div>
+                    </div>
+
+                    <div class="indicator-content">
+
+                        <span class="indicator-category">
+                            VENTAS
+                        </span>
+
+                        <h3>Número de ventas</h3>
+
+                        <strong class="indicator-value">
+                            6
+                        </strong>
+
+                        <p>
+                            Representa la cantidad de operaciones de venta
+                            registradas en la información disponible.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 3 -->
+
+                <article class="indicator-card">
+
+                    <div class="indicator-image products-image">
+                        <div class="indicator-illustration">
+                            📦
+                        </div>
+                    </div>
+
+                    <div class="indicator-content">
+
+                        <span class="indicator-category">
+                            VENTAS
+                        </span>
+
+                        <h3>Productos vendidos</h3>
+
+                        <strong class="indicator-value">
+                            71
+                        </strong>
+
+                        <p>
+                            Muestra la cantidad de unidades de productos
+                            comercializadas durante el periodo analizado.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 4 -->
+
+                <article class="indicator-card">
+
+                    <div class="indicator-image stock-image">
+                        <div class="indicator-illustration">
+                            📊
+                        </div>
+                    </div>
+
+                    <div class="indicator-content">
+
+                        <span class="indicator-category">
+                            INVENTARIO
+                        </span>
+
+                        <h3>Stock actual</h3>
+
+                        <strong class="indicator-value">
+                            204
+                        </strong>
+
+                        <p>
+                            Representa las unidades disponibles en el
+                            inventario según la información registrada.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 5 -->
+
+                <article class="indicator-card">
+
+                    <div class="indicator-image catalog-image">
+                        <div class="indicator-illustration">
+                            🗃
+                        </div>
+                    </div>
+
+                    <div class="indicator-content">
+
+                        <span class="indicator-category">
+                            PRODUCTOS
+                        </span>
+
+                        <h3>Total de productos</h3>
+
+                        <strong class="indicator-value">
+                            50
+                        </strong>
+
+                        <p>
+                            Cantidad de productos registrados en el catálogo
+                            utilizado para el análisis.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 6 -->
+
+                <article class="indicator-card">
+
+                    <div class="indicator-image purchases-image">
+                        <div class="indicator-illustration">
+                            🛒
+                        </div>
+                    </div>
+
+                    <div class="indicator-content">
+
+                        <span class="indicator-category">
+                            COMPRAS
+                        </span>
+
+                        <h3>Total de compras</h3>
+
+                        <strong class="indicator-value">
+                            $4.820
+                        </strong>
+
+                        <p>
+                            Representa el valor acumulado de las compras
+                            registradas en la información disponible.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 7 -->
+
+                <article class="indicator-card">
+
+                    <div class="indicator-image purchase-count-image">
+                        <div class="indicator-illustration">
+                            📋
+                        </div>
+                    </div>
+
+                    <div class="indicator-content">
+
+                        <span class="indicator-category">
+                            COMPRAS
+                        </span>
+
+                        <h3>Número de compras</h3>
+
+                        <strong class="indicator-value">
+                            181
+                        </strong>
+
+                        <p>
+                            Cantidad de registros de compras disponibles
+                            para el análisis empresarial.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+            <div class="indicator-note">
+
+                <div class="note-icon">💡</div>
+
+                <div>
+
+                    <strong>Información importante</strong>
+
+                    <p>
+                        Estos indicadores serán vinculados posteriormente
+                        con el modelo de datos y el dashboard desarrollado
+                        en Power BI.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<div id="notificationPanel" class="notification-panel">
+
+    <div class="notification-header">
+
+        <strong>Notificaciones</strong>
+
+        <button onclick="cerrarNotificaciones()">
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="notification-item">
+
+        <span>📊</span>
+
+        <div>
+            <strong>Indicadores disponibles</strong>
+
+            <p>
+                Los indicadores están disponibles para consulta.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="notification-item">
+
+        <span>📦</span>
+
+        <div>
+            <strong>Inventario</strong>
+
+            <p>
+                Puede revisar el módulo de inventario.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="js/datos.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

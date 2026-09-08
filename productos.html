@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Productos | Directo de Fábrica</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">DF</div>
+
+            <div>
+                <strong>Directo</strong>
+                <span>de Fábrica</span>
+            </div>
+
+        </div>
+
+        <div class="menu-title">MENÚ PRINCIPAL</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="index.html" class="menu-item">
+                <span class="menu-icon">⌂</span>
+                Inicio
+            </a>
+
+            <a href="dashboard.html" class="menu-item">
+                <span class="menu-icon">▦</span>
+                Dashboard BI
+            </a>
+
+            <a href="ventas.html" class="menu-item">
+                <span class="menu-icon">▤</span>
+                Ventas
+            </a>
+
+            <a href="inventario.html" class="menu-item">
+                <span class="menu-icon">▣</span>
+                Inventario
+            </a>
+
+            <a href="productos.html" class="menu-item active">
+                <span class="menu-icon">□</span>
+                Productos
+            </a>
+
+            <a href="indicadores.html" class="menu-item">
+                <span class="menu-icon">◉</span>
+                Indicadores
+            </a>
+
+        </nav>
+
+        <div class="menu-title system-title">SISTEMA</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="configuracion.html" class="menu-item">
+                <span class="menu-icon">⚙</span>
+                Configuración
+            </a>
+
+            <button class="menu-item logout-button" onclick="cerrarSesion()">
+                <span class="menu-icon">↪</span>
+                Cerrar sesión
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <span class="section-label">CATÁLOGO</span>
+                <h1>Productos</h1>
+            </div>
+
+            <div class="topbar-actions">
+
+                <button class="top-action theme-button" onclick="alternarTema()">
+                    <span id="themeIcon">☀</span>
+                </button>
+
+                <button class="top-action notification-button" onclick="mostrarNotificaciones()">
+                    🔔
+                    <span class="notification-badge">2</span>
+                </button>
+
+                <div class="topbar-divider"></div>
+
+                <div class="user-profile">
+
+                    <div class="user-avatar">AD</div>
+
+                    <div class="user-data">
+                        <strong>Administrador</strong>
+                        <span>Directo de Fábrica</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+            <div class="page-intro">
+
+                <span class="section-label">PRODUCTOS</span>
+
+                <h2>Catálogo de productos</h2>
+
+                <p>
+                    Consulta los productos registrados y su información
+                    disponible.
+                </p>
+
+            </div>
+
+
+            <div class="search-card">
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="buscarProducto"
+                        placeholder="Buscar producto..."
+                        onkeyup="filtrarProductos()"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="table-container">
+
+                    <table id="tablaProductos">
+
+                        <thead>
+
+                            <tr>
+                                <th>Código</th>
+                                <th>Producto</th>
+                                <th>Categoría</th>
+                                <th>Stock</th>
+                                <th>Estado</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>P001</td>
+                                <td>Producto A</td>
+                                <td>General</td>
+                                <td>45</td>
+                                <td><span class="tag success">Disponible</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>P002</td>
+                                <td>Producto B</td>
+                                <td>General</td>
+                                <td>32</td>
+                                <td><span class="tag success">Disponible</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>P003</td>
+                                <td>Producto C</td>
+                                <td>General</td>
+                                <td>18</td>
+                                <td><span class="tag success">Disponible</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>P004</td>
+                                <td>Producto D</td>
+                                <td>General</td>
+                                <td>8</td>
+                                <td><span class="tag warning">Stock bajo</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>P005</td>
+                                <td>Producto E</td>
+                                <td>General</td>
+                                <td>25</td>
+                                <td><span class="tag success">Disponible</span></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<div id="notificationPanel" class="notification-panel">
+
+    <div class="notification-header">
+        <strong>Notificaciones</strong>
+        <button onclick="cerrarNotificaciones()">×</button>
+    </div>
+
+    <div class="notification-item">
+        <span>📦</span>
+
+        <div>
+            <strong>Productos disponibles</strong>
+            <p>El catálogo puede ser consultado.</p>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/datos.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
